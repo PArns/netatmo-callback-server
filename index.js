@@ -25,8 +25,8 @@ app.get('/', function (req, res) {
 app.all('/netatmo-webhook/', function (req, res) {
     var requestData = req.body;
 
-    if (requestData && requestData.credentials && requestData.credentials.user && requestData.credentials.user.$id) {
-        var id = requestData.credentials.user.$id;
+    if (requestData && requestData.extra_params && requestData.extra_params && requestData.extra_params.home_id) {
+        var id = requestData.extra_params.home_id;
 
         io.sockets.in(id).emit('alert', requestData);
     }
