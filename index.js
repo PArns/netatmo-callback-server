@@ -34,3 +34,9 @@ app.all('/netatmo-webhook/', function (req, res) {
     res.writeHead(200);
     res.end("OK");
 });
+
+io.on('connection', function (socket) {
+    socket.on('registerHome', function (homeId) {
+        socket.join(homeId);
+    });
+});
