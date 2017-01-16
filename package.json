@@ -1,0 +1,29 @@
+{
+  "name": "netatmo-callback-server",
+  "version": "0.0.1",
+  "description": "Netatmo WebHook Server for Welcome & Presence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PArns/netatmo-callback-server.git"
+  },
+  "keywords": [
+    "netatmo",
+    "webhook",
+    "socket"
+  ],
+  "author": "Patrick Arns <npm@patrick-arns.de> (http://www.patrick-arns.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PArns/netatmo-callback-server/issues"
+  },
+  "homepage": "https://github.com/PArns/netatmo-callback-server#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "socket.io": "^1.7.2"
+  }
+}
