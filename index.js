@@ -4,7 +4,9 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
-server.listen(8080);
+var port = process.env.PORT || 8080;
+server.listen(port);
+
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
