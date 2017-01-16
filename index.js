@@ -25,12 +25,8 @@ app.get('/', function (req, res) {
 app.all('/netatmo-webhook/', function (req, res) {
     var requestData = req.body;
 
-    console.log("GOT DATA");
-    console.log(JSON.stringify(requestData));
-
-    if (requestData && requestData.extra_params && requestData.extra_params && requestData.extra_params.home_id) {
-        var id = requestData.extra_params.home_id;
-        io.sockets.in(id).emit('alert', requestData);
+    if (requestData && requestData.home_id) {
+        io.sockets.in(requestData.home_id).emit('alert', requestData);
     }
 
     res.writeHead(200);
@@ -39,9 +35,6 @@ app.all('/netatmo-webhook/', function (req, res) {
 
 io.on('connection', function (socket) {
     socket.on('registerHome', function (homeId) {
-        console.log("CLIENT REGISTERS HOME");
-        console.log(homeId);
-
         socket.join(homeId);
     });
 });
